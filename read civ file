@@ -1,0 +1,26 @@
+// read csv file
+from google.colab import files
+uploaded = files.upload()
+
+import pandas as pd 
+import io
+df=pd.read_csv(io.BytesIO(uploaded['Sport car price.csv']))
+print(df)
+
+df.tail()
+df.head()
+
+// Scatter plot
+import matplotlib.pyplot as plt 
+x=df['Year']
+y=df['Horsepower']
+plt.xlabel('Year')
+plt.ylabel('Horsepower')
+plt.title('Year vs Horsepower')
+
+plt.scatter(x,y)
+plt.show()
+
+// pie chart
+df =pd.DataFrame({"car specification":["Engine Size","Horsepower","Torque"]})
+df["car specification"].value_counts().plot.pie()
